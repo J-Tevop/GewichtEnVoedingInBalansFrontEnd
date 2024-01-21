@@ -11,9 +11,9 @@ import { RouterLink, RouterLinkActive } from '@angular/router'
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  isMenuOpen = false
+  isDropdownOpen = false
 
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen
   }
 }
