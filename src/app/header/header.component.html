@@ -1,41 +1,16 @@
-<section class="max-h-24 p-4 flex justify-end items-center">
-  <div class="flex text-right items-center justify-center">
-    <button id="hamburger-button" class="mb-1 text-6xl cursor-pointer">
-      &#9776;
-    </button>
-  </div>
-</section>
-<section
-  id="mobile-menu"
-  class="absolute top-0 bg-white w-full text-5xl flex-col justify-content-center origin-top animate-open-menu hidden"
->
-  <button class="text-8xl self-end px 6">&times;</button>
-  <nav class="flex flex-col min-h-screen items-center py-8" aria-label="mobile">
-    <a
-      routerLink=""
-      class="w-full text-center py-6 hover:opacity-90"
-      routerLinkActive="active"
-      >Home</a
-    >
-    <a
-      routerLink="blog"
-      class="w-full text-center py-6 hover:opacity-90"
-      routerLinkActive="active"
-      >Blog</a
-    >
-    <a
-      routerLink="recepten"
-      class="w-full text-center py-6 hover:opacity-90"
-      routerLinkActive="active"
-      >Recepten</a
-    >
-    <a
-      routerLink="contact"
-      class="w-full text-center py-6 hover:opacity-90"
-      routerLinkActive="active"
-      >Contact</a
-    >
-    <a routerLink="blog" routerLinkActive="active">Blog</a>
-    <a routerLink="contact" routerLinkActive="active">Contact</a>
-  </nav>
-</section>
+<ul ngbNav class="justify-content-end align-items-center nav-custom">
+  <li
+    ngbDropdown
+    placement="bottom-right"
+    class="d-inline-block float_left point dropdown-menu-left"
+  >
+    <a class="" id="dropdownBasic1" ngbDropdownToggle>
+      <i class="bi hamburger-icon bi-list"></i>
+    </a>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+      <button ngbDropdownItem>Action - 1</button>
+      <button ngbDropdownItem>Another Action</button>
+      <button ngbDropdownItem>Something else is here</button>
+    </div>
+  </li>
+</ul>

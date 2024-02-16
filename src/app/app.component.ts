@@ -4,6 +4,7 @@ import { FooterComponent } from './footer/footer.component'
 import { BlogComponent } from './blog/blog.component'
 import { HeaderComponent } from './header/header.component'
 import { CommonModule } from '@angular/common'
+import { MatMenuItem, MatMenuModule } from '@angular/material/menu'
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,8 @@ import { CommonModule } from '@angular/common'
     BlogComponent,
     HeaderComponent,
     CommonModule,
+    MatMenuItem,
+    MatMenuModule,
   ],
 })
 export class AppComponent {

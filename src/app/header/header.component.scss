@@ -1,0 +1,25 @@
+.active {
+  color: #ff6347; /* Tomato color */
+  font-weight: bold;
+}
+
+// .menu-button {
+//   font-size: 3vw;
+// }
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.hamburger-icon {
+  font-size: 3vw;
+  color: black;
+}
+
+.hamburger-icon:hover {
+  cursor: pointer;
+}
+
+.nav-custom {
+  height: 5vw;
+}
