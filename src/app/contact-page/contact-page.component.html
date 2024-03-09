@@ -142,7 +142,9 @@
           {{ successMessage }}
         </div>
         <div *ngIf="showErrorMessage" class="errorMessage mt-2">
-          {{ errorMessage }}
+          {{
+            errorMessage || 'Er is iets misgegaan, probeer het later opnieuw'
+          }}
         </div>
       </div>
     </form>
