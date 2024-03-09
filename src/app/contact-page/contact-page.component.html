@@ -1,0 +1,162 @@
+<div class="page-title-container"><p class="page-title">Contact</p></div>
+
+<div class="contact-container row">
+  <div class="contact-left col">
+    <p>
+      <a href="mailto:sandy&#64;gewichtenvoedinginbalans.nl"
+        >sandy&#64;gewichtenvoedinginbalans.nl</a
+      >
+      <br />
+      Telefoonnummer: 06-48336085 <br />
+      AGB code: 90109685 <br />
+      BGN-nummer: 3962 <br />
+      KvK: 67912508
+    </p>
+  </div>
+  <div class="contact-middle col-6">
+    <form [formGroup]="createMailForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nameInput">Naam</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nameInput"
+          [formControl]="createMailForm.controls['name']"
+          placeholder="John Doe"
+          required
+        />
+        <div
+          *ngIf="
+            createMailForm.controls['name'].invalid &&
+            createMailForm.controls['name'].touched
+          "
+          class="invalid-feedback"
+        >
+          Naam is verplicht
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="emailInput">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="emailInput"
+          [formControl]="createMailForm.controls['email']"
+          placeholder="j.doe@mail.com"
+        />
+
+        <div
+          *ngIf="
+            createMailForm.controls['email'].invalid &&
+            createMailForm.controls['email'].touched
+          "
+          class="invalid-feedback"
+        >
+          Gebruik een correct email-adres
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="addressInput">Adres</label>
+        <input
+          type="text"
+          class="form-control"
+          id="addressInput"
+          [formControl]="createMailForm.controls['address']"
+          placeholder="Berlijnplein 100"
+          required
+        />
+        <div
+          *ngIf="
+            createMailForm.controls['address'].invalid &&
+            createMailForm.controls['address'].touched
+          "
+          class="invalid-feedback"
+        >
+          Adres is verplicht
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="postalCodeInput">Postcode</label>
+        <input
+          type="text"
+          class="form-control"
+          id="postalCodeInput"
+          [formControl]="createMailForm.controls['postalCode']"
+          placeholder="3541 CM"
+          required
+        />
+        <div
+          *ngIf="
+            createMailForm.controls['postalCode'].invalid &&
+            createMailForm.controls['postalCode'].touched
+          "
+          class="invalid-feedback"
+        >
+          Postcode is verplicht
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="numberInput">Telefoonnummer</label>
+        <input
+          type="text"
+          class="form-control"
+          id="numberInput"
+          [formControl]="createMailForm.controls['telephoneNumber']"
+          placeholder="06 12345678"
+        />
+        <div
+          *ngIf="
+            createMailForm.controls['telephoneNumber'].invalid &&
+            createMailForm.controls['telephoneNumber'].touched
+          "
+          class="invalid-feedback"
+        >
+          Telefoonnummer is verplicht
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="messageInput">Bericht</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="messageInput"
+          [formControl]="createMailForm.controls['message']"
+          placeholder="Bericht..."
+          required
+        ></textarea>
+        <div
+          *ngIf="
+            createMailForm.controls['message'].invalid &&
+            createMailForm.controls['message'].touched
+          "
+          class="invalid-feedback"
+        >
+          Bericht is verplicht
+        </div>
+      </div>
+      <div class="submit-button-container mt-4">
+        <button class="btn btn-primary submit-button" type="submit">
+          Verstuur
+        </button>
+        <div *ngIf="showSuccessMessage" class="successMessage mt-2">
+          {{ successMessage }}
+        </div>
+        <div *ngIf="showErrorMessage" class="errorMessage mt-2">
+          {{ errorMessage }}
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="contact-right col">
+    <p>
+      <a href="mailto:sandy&#64;gewichtenvoedinginbalans.nl"
+        >sandy&#64;gewichtenvoedinginbalans.nl</a
+      >
+      <br />
+      Telefoonnummer: 06-48336085 <br />
+      AGB code: 90109685 <br />
+      BGN-nummer: 3962 <br />
+      KvK: 67912508
+    </p>
+  </div>
+</div>

@@ -1,0 +1,105 @@
+@use 'vars';
+
+.contact-left,
+.contact-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: vars.$primaryColor;
+}
+
+.contact-right {
+  display: none !important;
+}
+
+.form-group {
+  label {
+    display: flex;
+    align-items: center;
+    min-width: 10rem;
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.form-control {
+  width: 100%;
+}
+
+.form-group:not(:first-child) {
+  margin-top: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: vars.$primaryColor;
+}
+
+.invalid-feedback {
+  color: red;
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .contact-left {
+    display: none !important;
+  }
+
+  .contact-middle {
+    width: 100%;
+  }
+
+  .contact-right {
+    display: flex !important;
+    margin-top: 2rem;
+  }
+
+  .form-group {
+    label {
+      margin: auto;
+      justify-content: center;
+      display: flex;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .form-control {
+    margin-left: 0;
+    margin: auto;
+    height: auto;
+    justify-content: center;
+    display: flex;
+    width: 80%;
+  }
+
+  .submit-button-container {
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .submit-button {
+    background-color: vars.$primaryColor;
+    border: 1px solid vars.$primaryColor;
+  }
+
+  .successMessage {
+    background-color: #4fd34f;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+  }
+
+  .errorMessage {
+    background-color: red;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+  }
+}

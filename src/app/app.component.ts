@@ -5,6 +5,7 @@ import { BlogComponent } from './blog/blog.component'
 import { HeaderComponent } from './header/header.component'
 import { CommonModule } from '@angular/common'
 import { MatMenuItem, MatMenuModule } from '@angular/material/menu'
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms'
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,8 @@ import { MatMenuItem, MatMenuModule } from '@angular/material/menu'
     CommonModule,
     MatMenuItem,
     MatMenuModule,
+    ReactiveFormsModule,
+    CommonModule,
   ],
 })
 export class AppComponent {
