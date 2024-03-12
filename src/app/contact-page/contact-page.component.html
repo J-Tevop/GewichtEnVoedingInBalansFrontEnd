@@ -133,6 +133,16 @@
         >
           Bericht is verplicht
         </div>
+
+        <div
+          *ngIf="
+            createMailForm.controls['message'].invalid &&
+            createMailForm.controls['message'].touched
+          "
+          class="invalid-feedback"
+        >
+          Bericht is verplicht
+        </div>
       </div>
       <div class="submit-button-container mt-4">
         <button class="btn btn-primary submit-button" type="submit">

@@ -61,7 +61,6 @@ export class ContactPageComponent {
         this.createMailForm.getRawValue() as CreateMail
       this.contactPageService.sendMail(createMail).subscribe({
         next: response => {
-          console.log('HERE', response)
           this.showSuccessMessage = true
           this.showErrorMessage = false
           this.errorMessage = ''
@@ -69,10 +68,9 @@ export class ContactPageComponent {
         },
 
         error: error => {
-          console.log('HIERARAEWA')
           this.showErrorMessage = true
           this.showSuccessMessage = false
-          this.errorMessage = error.error.message
+          this.errorMessage = error.message
         },
       })
     }
