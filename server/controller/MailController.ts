@@ -1,4 +1,3 @@
-import { app } from '../../server'
 import express from 'express'
 import { MailService } from '../service/MailService'
 

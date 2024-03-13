@@ -6,10 +6,12 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:GewichtEnVoedingInBalans": "node dist/gewicht-en-voeding-in-balans/server/server.mjs",
+    "serve:ssr:GewichtEnVoedingInBalans": "nodemon node dist/gewicht-en-voeding-in-balans/server/server.mjs",
     "start": "concurrently \"ng serve\" \"npx chokidar 'src/**/*.scss' -c 'npm run build:css'\"",
     "build:css": "npx postcss ./src/styles.scss -o ./src/styles.css",
-    "lite": "npx lite-server --baseDir='dist/gewicht-en-voeding-in-balans/browser'"
+    "lite": "npx lite-server --baseDir='dist/gewicht-en-voeding-in-balans/browser'",
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "migration": "npm run typeorm migration:run -- -d ./server/DataSource.ts"
   },
   "private": true,
   "dependencies": {
@@ -35,13 +37,16 @@
     "express": "^4.18.2",
     "googleapis": "^133.0.0",
     "jquery": "^3.7.1",
+    "mysql": "^2.18.1",
     "ngx-bootstrap": "^12.0.0",
     "nodemailer": "^6.9.12",
     "popper.js": "^1.16.1",
     "postcss": "^8.4.33",
     "postcss-cli": "^11.0.0",
+    "reflect-metadata": "^0.2.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "typeorm": "^0.3.20",
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
@@ -52,7 +57,7 @@
     "@angular/localize": "^17.1.0",
     "@types/express": "^4.17.17",
     "@types/jasmine": "~5.1.0",
-    "@types/node": "^18.18.0",
+    "@types/node": "^18.19.23",
     "@types/nodemailer": "^6.4.14",
     "chokidar-cli": "^3.0.0",
     "concurrently": "^8.2.2",
@@ -63,6 +68,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "lite-server": "^2.6.1",
+    "nodemon": "^3.1.0",
     "prettier": "^3.2.4",
     "typescript": "~5.3.2",
     "webpack-bundle-analyzer": "^4.10.1"

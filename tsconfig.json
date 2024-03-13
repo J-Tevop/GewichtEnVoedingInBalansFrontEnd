@@ -21,6 +21,8 @@
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"],
     "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false,
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
@@ -28,5 +30,12 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
     "preserveWhiteSpaces": false,
+  },
+  "ts-node": {
+    // these options are overrides used only by ts-node
+    // same as the --compilerOptions flag and the TS_NODE_COMPILER_OPTIONS environment variable
+    "compilerOptions": {
+      "module": "commonjs",
+    },
   },
 }

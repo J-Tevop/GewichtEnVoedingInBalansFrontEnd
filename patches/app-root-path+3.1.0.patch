@@ -1,0 +1,11 @@
+diff --git a/node_modules/app-root-path/index.js b/node_modules/app-root-path/index.js
+index 7fd5bde..ad84c91 100644
+--- a/node_modules/app-root-path/index.js
++++ b/node_modules/app-root-path/index.js
+@@ -1,4 +1,4 @@
+ 'use strict';
+ 
+ var lib = require('./lib/app-root-path.js');
+-module.exports = lib(__dirname);
+\ No newline at end of file
++module.exports = lib(typeof __dirname === 'undefined' ? process.cwd() : __dirname);
