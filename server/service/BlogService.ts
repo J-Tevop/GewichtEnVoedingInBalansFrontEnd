@@ -1,46 +1,96 @@
-// Assuming you have a Blog model
-
-import { getRepository } from 'typeorm'
 import { Blog } from '../entity/Blog'
-import { createConnection } from 'net'
-import { connect } from 'http2'
-import { get } from 'http'
 import { AppDataSource } from '../DataSource'
-// import { dbConnection } from '../../server'
+import { validate } from 'class-validator'
 
 require('dotenv').config()
 
 export class BlogService {
   private blogRepository = AppDataSource.getRepository(Blog)
 
-  constructor() {}
-
   async createBlog(blogData: Blog): Promise<Blog> {
-    // Implement your logic to create a blog here
-    // For example, with TypeORM you might do:
-    // return getRepository(Blog).save(blogData);
-    return this.blogRepository.save(blogData)
+    const blog = this.blogRepository.create(blogData)
+    const errors = await validate(blog)
+
+    if (errors.length > 0) {
+      const errorMessages = errors
+        .map(error => Object.values(error.constraints || {}))
+        .join(', ')
+      throw new Error(errorMessages)
+    } else {
+      try {
+        await this.blogRepository.save(blog)
+        return blog
+      } catch (error) {
+        console.error('Error while creating blog:', error)
+        throw error
+      }
+    }
   }
 
-  async getBlog(id: string): Promise<Blog | null> {
-    // Implement your logic to get a blog by ID here
-    // For example, with TypeORM you might do:
-    // return getRepository(Blog).findOne(id);
-    return this.blogRepository.findOne({ where: { id: parseInt(id) } })
+  async getBlogById(id: string): Promise<Blog | null> {
+    const blog = await this.blogRepository.findOne({
+      where: { id: parseInt(id) },
+    })
+
+    if (!blog) {
+      console.log('Blog not found')
+      throw new Error('Blog not found')
+    }
+
+    try {
+      return blog
+    } catch (error) {
+      console.error('Error while finding blog:', error)
+      throw error
+    }
+  }
+
+  async getAllBlogs(): Promise<Blog[] | null> {
+    const blogs = await this.blogRepository.find()
+
+    if (!blogs) {
+      console.log('Blog not found')
+      throw new Error('Blog not found')
+    }
+    try {
+      return blogs
+    } catch (error) {
+      console.error('Error while finding blogs:', error)
+      throw error
+    }
   }
 
   async updateBlog(id: string, blogData: Blog): Promise<Blog | null> {
-    // Implement your logic to update a blog here
-    // For example, with TypeORM you might do:
-    // await getRepository(Blog).update(id, blogData);
-    // return getRepository(Blog).findOne(id);
+    const blog = await this.blogRepository.findOne({
+      where: { id: parseInt(id) },
+    })
 
-    return this.blogRepository.save(blogData)
+    if (!blog) {
+      throw new Error('Blog not found')
+    }
+
+    blog.title = blogData.title
+    blog.body = blogData.body
+    blog.summary = blogData.summary
+    blog.updated_at = new Date()
+
+    return this.blogRepository.save(blog)
   }
 
   async deleteBlog(id: string): Promise<void> {
-    // Implement your logic to delete a blog here
-    // For example, with TypeORM you might do:
-    // await getRepository(Blog).delete(id);
+    const blog = await this.blogRepository.findOne({
+      where: { id: parseInt(id) },
+    })
+
+    if (!blog) {
+      throw new Error('Blog not found')
+    }
+
+    try {
+      await this.blogRepository.remove(blog)
+    } catch (error) {
+      console.error('Error while deleting blog:', error)
+      throw error
+    }
   }
 }
