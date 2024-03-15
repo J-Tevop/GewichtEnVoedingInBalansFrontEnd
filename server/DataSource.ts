@@ -14,5 +14,4 @@ export const AppDataSource = new DataSource({
   logging: true,
   entities: [Blog, Image],
   migrations: ['server/migrations/*.js'],
-  synchronize: true,
 })
