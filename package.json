@@ -6,7 +6,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:GewichtEnVoedingInBalans": "nodemon node dist/gewicht-en-voeding-in-balans/server/server.mjs",
+    "serve:ssr:GewichtEnVoedingInBalans": "node dist/gewicht-en-voeding-in-balans/server/server.mjs",
     "start": "concurrently \"ng serve\" \"npx chokidar 'src/**/*.scss' -c 'npm run build:css'\"",
     "build:css": "npx postcss ./src/styles.scss -o ./src/styles.css",
     "lite": "npx lite-server --baseDir='dist/gewicht-en-voeding-in-balans/browser'",

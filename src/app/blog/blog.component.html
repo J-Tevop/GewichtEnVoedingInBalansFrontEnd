@@ -1,3 +1,62 @@
-<div class="page-title-container"><p class="page-title">Test</p></div>
+<div class="page-title-container"><p class="page-title">Blog</p></div>
 
-<div class="container">dawdalwkdnawla awdakdjn</div>
+<div class="container row">
+  <div class="col-3">
+    <img
+      ngSrc="/assets/images/blog_image.jpeg"
+      ngSrcset="50w, 100w, 150w"
+      class="img-fluid flex m-auto"
+      height="300"
+      width="300"
+      priority
+    />
+  </div>
+
+  <div class="intro-text col-9">
+    Wat leuk dat je mijn blog komt lezen! Graag wil ik je hier inspireren en
+    laten zien dat gezonder eten DE sleutel is meer energie en een gezond en
+    slanker leven. Ik deel hier mijn kennis met jou en geef je handige,
+    bruikbare informatie over afvallen en veel weetjes over voeding en bewegen.
+    Dus ben je klaar om af te vallen en kun je wel wat inspiratie gebruiken en
+    vind je gezond zijn en worden belangrijk? Dan ben je hier aan het juiste
+    adres! Wil je verder nog op de hoogte blijven? Volg mij dan op
+    <a
+      class="https://www.facebook.com/gewichtsconsulenteaanhuisenonline/"
+      routerLink=""
+      >Facebook</a
+    >
+    en
+    <a routerLink="https://www.instagram.com/gewicht_en_voeding_in_balans/"
+      >Instagram</a
+    >.
+    <br />
+    <br />
+
+    Heel veel leesplezier! Liefs Sandy
+  </div>
+</div>
+
+<div class="row row-cols-4 row-cols-md mt-2 g-4">
+  <div class="col" *ngFor="let blog of blogs">
+    <div class="card card-custom" style="height: 500px">
+      <div
+        class="card-custom-img"
+        style="
+          background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);
+        "
+      ></div>
+      <div class="card-body" style="overflow-y: auto">
+        <h4 class="card-title">{{ blog.title }}</h4>
+        <p class="card-text">
+          {{ blog.summary }}
+        </p>
+      </div>
+      <div
+        class="card-footer"
+        style="background: inherit; border-color: inherit"
+      >
+        <a href="#" class="btn btn-color btn-primary">Lees meer!</a>
+      </div>
+    </div>
+  </div>
+</div>

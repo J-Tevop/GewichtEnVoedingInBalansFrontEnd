@@ -1,4 +1,4 @@
 /
 /blog
-/blod:id
+/blog/:id
 /contact
