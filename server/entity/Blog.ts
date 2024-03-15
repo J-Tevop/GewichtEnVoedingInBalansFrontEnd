@@ -4,9 +4,11 @@ import {
   Entity,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm'
 import { iBlog } from '../types/iBlog'
 import { IsNotEmpty } from 'class-validator'
+import { Image } from './Image'
 
 @Entity({ name: 'blogs' })
 export class Blog implements iBlog {
@@ -30,4 +32,7 @@ export class Blog implements iBlog {
 
   @UpdateDateColumn()
   updated_at: Date
+
+  @OneToMany(() => Image, image => image.blog)
+  images: Image[]
 }

@@ -19,6 +19,7 @@ export class BlogService {
     } else {
       try {
         await this.blogRepository.save(blog)
+
         return blog
       } catch (error) {
         console.error('Error while creating blog:', error)

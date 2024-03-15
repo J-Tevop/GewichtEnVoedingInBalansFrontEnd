@@ -1,5 +1,6 @@
 import { DataSource } from 'typeorm'
 import { Blog } from './entity/Blog'
+import { Image } from './entity/Image'
 
 require('dotenv').config()
 
@@ -11,7 +12,7 @@ export const AppDataSource = new DataSource({
   password: process.env['DB_PASS'],
   database: process.env['DB_NAME'],
   logging: true,
-  entities: [Blog],
-  migrations: ['dist/**/*.migration.js'],
-  //   entities: ['dist/**/*.entity.js'],
+  entities: [Blog, Image],
+  migrations: ['server/migrations/*.js'],
+  synchronize: true,
 })
